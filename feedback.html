@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedstar Motors | Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="container">
+        <form id="form" action="/" method="GET" onsubmit="return validationform()">
+            <div>
+                <label>
+                    name
+                    <input type="name" name="name" placeholder="name" id="name" required>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Email
+                    <input type="email" name="email" placeholder="email" id="email" required>
+                </label>
+            </div>
+            <div>
+                <lable>
+                    Feedback
+                    <input type="text" name="feedback" placeholder="feedback" id="feedback">
+                </lable>
+            </div>
+            <div>
+                <button type="submit"> Submit</button> 
+            </div>
+            <script>
+                function validationform(){
+                    let isValid= true;
+                    // Get form inputs
+                    let name = document.getElementById("name").value.trim():
+                    let email = document.getElementById("email").value.trim();
+                    let feeback = document.getElementById("feedback").value.trim();
+                    // Get error element
+                    let nameError = document.getElementById("nameError");
+                    let emailError = document.getElementById("emailError");
+                    letfeedbackError = document.getElementById("feedbackError");
+                    // Rest error messages
+                    nameError.textContent ="";
+                    emailError.textContent ="";
+                    feedbackError.textContent ="";
+                    // Validate Name(Minimum 3 characters)
+                    if (name.length < 3){
+                        nameError.textContent = "Name must be at least 3 characters long.";
+                        isValid = false;
+                    }
+                    // Validate Email(Basic pattern check)
+                    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if(!emailPattern.test)(email){
+                        emailError.textContent = "Enter a valid email address.";
+                        isValid = false;
+                    }
+                    // Validate Feedback (Minimum 10 characters)
+                    if (feedback.length < 10){
+                        feedbackError.textContent = "Feedback must be at least 10 characters long";
+                        isValid = false;
+                    }
+                    return isValid;
+                }
+            </script>
+        </form>
+    </section>
+    <footer>
+        <p>&copy;2025 Speedstar Motors. All rights reserved.</p>
+    </footer>
+</body>
+</html>
